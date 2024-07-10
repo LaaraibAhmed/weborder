@@ -5,6 +5,7 @@ import {
   getSubscription,
   getUser
 } from '@/utils/supabase/queries';
+import Banner_comp from '@/components/ui/Banner/Banner';
 
 export default async function PricingPage() {
   const supabase = createClient();
@@ -15,10 +16,13 @@ export default async function PricingPage() {
   ]);
 
   return (
-    <Pricing
-      user={user}
-      products={products ?? []}
-      subscription={subscription}
-    />
+    <>
+      <Banner_comp />
+      <Pricing
+        user={user}
+        products={products ?? []}
+        subscription={subscription}
+      />
+    </>
   );
 }
