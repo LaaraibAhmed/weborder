@@ -6,6 +6,8 @@ import {
   getUser
 } from '@/utils/supabase/queries';
 import Banner_comp from '@/components/ui/Banner/Banner';
+import Cards from '@/components/ui/Cards/Cards';
+import PriceCards from '@/components/ui/PriceCards/PriceCards';
 
 export default async function PricingPage() {
   const supabase = createClient();
@@ -16,13 +18,16 @@ export default async function PricingPage() {
   ]);
 
   return (
-    <>
+    <div className="flex flex-col">
       <Banner_comp />
+      <Cards />
+      <Cards />
+      <Cards />
       <Pricing
         user={user}
         products={products ?? []}
         subscription={subscription}
       />
-    </>
+    </div>
   );
 }
